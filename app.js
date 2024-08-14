@@ -37,3 +37,18 @@ const cursorEffect = () => {
 };
 
 cursorEffect();
+
+
+gsap.from(".header .left span, .contents p",{
+  y:120,
+  stagger : 0.2,
+  duration :1,
+  scrollTrigger :{
+      trigger : ".page2",
+      scroller : ".main",
+      // markers : true,
+      scrub : 4,
+      start :"top 100%",
+      end :"top 46%"
+  }
+})
