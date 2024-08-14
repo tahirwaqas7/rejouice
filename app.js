@@ -45,8 +45,7 @@ gsap.from(".header .left span, .contents p",{
   duration :1,
   scrollTrigger :{
       trigger : ".page2",
-      scroller : ".main",
-      // markers : true,
+      scroller : ".main", 
       scrub : 4,
       start :"top 100%",
       end :"top 46%"
