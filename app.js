@@ -13,23 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
   container.innerHTML = html;
 });
 
-let heroContent = document.querySelector(".page1-content");
+const cursorEffect = () => {
+  let heroContent = document.querySelector(".page1-content");
 
-let cursor = document.querySelector("#cursor");
+  let cursor = document.querySelector("#cursor");
 
-heroContent.addEventListener("mousemove", (mouse) => {
-  gsap.to(cursor, {
-    x: mouse.x,
-    y: mouse.y,
+  heroContent.addEventListener("mousemove", (mouse) => {
+    gsap.to(cursor, {
+      x: mouse.x,
+      y: mouse.y,
+    });
   });
-});
 
-const handleCursor = ({ type }) => {
-  gsap.to(cursor, {
-    opacity: type === "mouseenter" ? 1 : 0,
-    scale: type === "mouseenter" ? 1 : 0,
-  });
+  const handleCursor = ({ type }) => {
+    gsap.to(cursor, {
+      opacity: type === "mouseenter" ? 1 : 0,
+      scale: type === "mouseenter" ? 1 : 0,
+    });
+  };
+
+  heroContent.addEventListener("mouseenter", handleCursor);
+  heroContent.addEventListener("mouseleave", handleCursor);
 };
 
-heroContent.addEventListener("mouseenter", handleCursor);
-heroContent.addEventListener("mouseleave", handleCursor);
+cursorEffect();
